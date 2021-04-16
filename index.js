@@ -32,22 +32,22 @@ app.get('/', function (req, res) {
 });
  
 // the GET "books" API endpoint
-app.get('/api/books', function (req, res) {
+app.get('/books', function (req, res) {
     res.send(books);
 });
  
 // the GET "movies" API endpoint
-app.get('/api/movies', function (req, res) {
+app.get('/movies', function (req, res) {
     res.send(movies);
 });
  
 // the GET "foods" API endpoint
-app.get('/api/food', function (req, res) {
+app.get('/food', function (req, res) {
     res.send(foods);
 });
  
 // POST endpoint for creating a new food
-app.post('/api/food', function (req, res) {
+app.post('/food', function (req, res) {
     // calculate the next ID
     let id = 1;
     if (foods.length > 0) {
@@ -60,7 +60,7 @@ app.post('/api/food', function (req, res) {
 });
  
 // PUT endpoint for editing food
-app.put('/api/food/:id', function (req, res) {
+app.put('/food/:id', function (req, res) {
     let id = req.params.id;
     let f = foods.find(x => x.id == id);
     f.name = req.body.name;
@@ -68,7 +68,7 @@ app.put('/api/food/:id', function (req, res) {
 });
  
 // DELETE endpoint for deleting food
-app.delete('/api/food/:id', function (req, res) {
+app.delete('/food/:id', function (req, res) {
     let id = req.params.id;
     let f = foods.find(x => x.id == id);
     foods = foods.filter(x => x.id != id);
